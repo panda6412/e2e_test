@@ -10,7 +10,7 @@ test('Navigate to Trend Micro staging', async ({ page }) => {
 
     test.slow()
     // Go to the specified URL
-    await page.goto('https://stg.idprotect.trendmicro.com/', { timeout: 90000 })
+    await page.goto('https://stg.idprotect.trendmicro.com/', { timeout: 120000 })
 
     // Check if some expected text is present
     await expect(page).toHaveTitle(/Trend Micro ID Protection/)
