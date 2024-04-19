@@ -1,3 +1,5 @@
+// example.spec.js
+
 // Import the Playwright test library
 const { test, expect } = require('@playwright/test')
 
@@ -6,6 +8,10 @@ const { test, expect } = require('@playwright/test')
 test('Navigate to Trend Micro staging', async ({ page }) => {
     page.on('request', (request) => console.log('>>', request.method(), request.url()))
     page.on('response', (response) => console.log('<<', response.status(), response.url()))
+
+    await page.goto('https://google.com/', { timeout: 600000 })
+    await expect(page).toHaveTitle(/Google/)
+    await new Promise((resolve) => setTimeout(resolve, 60000))
 
     // Go to the specified URL
     await page.goto('https://stg.idprotect.trendmicro.com/', { timeout: 600000 })
