@@ -10,7 +10,7 @@ on:
 
 jobs:
   test:
-    runs-on: ebf-pod-ubuntu-2004@${{ github.run_id }}-e2e-test
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
@@ -19,10 +19,10 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18'
+          node-version: 18
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
       
       - name: Install xvfb for testing extension with headed mode
         run: sudo apt-get install xvfb
